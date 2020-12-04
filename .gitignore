@@ -1,0 +1,10 @@
+.gradle
+
+# Compiled class file and paths
+*.class
+/out
+/**/out
+/build
+/**/build
+
+.idea
