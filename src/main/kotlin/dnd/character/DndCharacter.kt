@@ -1,5 +1,3 @@
-package dnd.character
-
 import kotlin.math.floor
 
 class DndCharacter {
@@ -13,17 +11,13 @@ class DndCharacter {
     val hitpoints: Int = 10 + modifier(constitution)
 
     companion object {
-
-        fun ability(): Int {
-
-            val s = generateSequence { Dice(6)
-                .roll(); Dice(6).roll(); Dice(6)
-                .roll(); Dice(6).roll() }
-            return s.sorted().drop(1).sum()
-        }
+        fun ability(): Int = generateSequence { Dice(6).roll() }
+            .take(4)
+            .sorted()
+            .drop(1)
+            .sum()
 
         fun modifier(abilityScore: Int) = floor((abilityScore - 10).toDouble() / 2).toInt()
-
     }
 
 }
